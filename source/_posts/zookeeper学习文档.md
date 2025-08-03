@@ -5,11 +5,11 @@ tags: zookeeper
 ---
 ### 原生api
 
-[ ]  [zookeeper connect](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
-[ ]  [zookeeper 权限控制](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
-[ ]  [zookeeper node crud](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
-[ ]  [zookeeper 事务](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
-[ ]  [zookeeper 监听器](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
+- [ ]  [zookeeper connect](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
+- [ ]  [zookeeper 权限控制](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
+- [ ]  [zookeeper node crud](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
+- [ ]  [zookeeper 事务](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
+- [ ]  [zookeeper 监听器](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/nativeapi)
 
 ### Curator api
 
@@ -23,11 +23,12 @@ tags: zookeeper
 | **`InterProcessSemaphoreMutex`** <br> (不可重入排他锁) | 轻量级、简化的排他锁 | 排他、**不可重入**、无持有者概念 | 逻辑简单且确定无重入调用的锁定场景 | 包装一个最大许可数为1的信号量 |
 | **`InterProcessSemaphoreV2`** <br> (共享信号量) | 控制对资源的并发访问数量 | **共享访问**、**并发数限制(N)** | 限制API调用、数据库连接池等有限资源 | 管理一个父节点下的N个临时“租约”子节点 |
 | **`InterProcessMultiLock`** <br> (多重锁) | 原子性地锁定多个资源 | **全有或全无 (All-or-Nothing)** | 分布式事务，如银行转账需同时锁定两方账户 | 客户端逻辑封装，依次获取所有锁，失败则回滚释放 |
-[ ]  [curator 可重入排他锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
-[ ]  [curator 读写锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
-[ ]  [curator 不可重入排他锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
-[ ]  [curator 信号量](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
-[ ]  [curator 多重锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
+
+- [ ]  [curator 可重入排他锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
+- [ ]  [curator 读写锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
+- [ ]  [curator 不可重入排他锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
+- [ ]  [curator 信号量](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
+- [ ]  [curator 多重锁](https://github.com/Breeze1203/JavaAdvanced/tree/main/JavaAdvanced/springboot-demo/zookeeper-demo/src/main/java/org/pt/curator/distributelock)
 
 ##### 底层实现
 
@@ -95,7 +96,6 @@ Apache Curator 的所有分布式锁，其实现都巧妙地利用了 ZooKeeper 
     4. **代码实现剖析**：
         * InterProcessReadWriteLock 的 readLock() 和 writeLock() 方法会分别创建两个内部的 InterProcessMutex 实例。这两个实例的特殊之处在于它们使用了不同的"Driver"。 
         * WriteLockDriver: 它的 getsTheLock() 方法逻辑很简单，就是判断当前节点是否是所有子节点中序号最小的。ReadLockDriver: 它的 getsTheLock() 方法逻辑更复杂。它会获取所有子节点，然后找到排在自己前面的序号最小的那个写锁节点。它只需要等待这个写锁节点被删除即可，而会忽略排在前面的其他读锁节点。这就是读锁可以共享的实现核心
-          ![](../images/读写锁.png)
           ![](../images/读写锁1.png)
           ![](../images/读写锁2.png)
 
