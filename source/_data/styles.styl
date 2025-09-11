@@ -1,0 +1,11 @@
+// 1. 从 CDN 引入霞鹜文楷的字体 CSS
+// 这一行代码会下载并定义 @font-face，让浏览器认识 "LXGW WenKai"
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.min.css');
+
+// 2. 定义 CSS 变量来覆盖 NexT 主题的默认字体
+// 我们将全局字体（--font-family-base）和代码字体（--font-family-monospace）都设置为霞鹜文楷
+// 'LXGW WenKai' 必须写在最前面，后面的字体作为备用选项
+:root {
+  --font-family-base: 'LXGW WenKai', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: 'LXGW WenKai', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
