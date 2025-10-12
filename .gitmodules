@@ -1,3 +1,6 @@
 [submodule "themes/next"]
 	path = themes/next
 	url = git@github.com:Breeze1203/hexo-theme-next.git
+[submodule "themes/cactus"]
+	path = themes/cactus
+	url = https://github.com/probberechts/hexo-theme-cactus.git
