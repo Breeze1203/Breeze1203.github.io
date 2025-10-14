@@ -7,9 +7,9 @@ description: "你好，我是彭涛 (Breeze1203)，一名热情的软件开发�
 ---
 你好，我是 **彭涛 (Breeze1203)**！👋我是一名坐标 深圳的软件开发者，对探索前沿技术、构建实用且有趣的应用程序以及参与开源社区抱有浓厚的兴趣。这个小站是我思想的试验田和技术的备忘录。在这里，我会分享我在软件开发过程中的学习笔记、遇到的问题与解决方案、对某些技术的思考，偶尔也会有一些生活感悟。我始终坚信分享是学习的最佳方式之一。希望你不仅能在这里找到对你有用的信息，也能感受到我对技术的热情。
 ## 找到我 📬
-我乐于与志同道合的朋友交流，你可以在以下地方找到我：
-**GitHub 主页**: <a href="https://github.com/Breeze1203" target="_blank" rel="noopener noreferrer">github.com/Breeze1203</a>在这里，你可以看到我的开源项目、代码贡献，以及我关注的技术动态。欢迎 Star 和 Fork！
-**邮箱**: <a href="mailto:tpeng9240@gmail.com">tpeng9240@gmail.com</a>如有任何问题或合作意向，欢迎随时邮件联系我。
-**简历(/pdfs/彭涛-计算科学与技术.pdf)**: 
+我乐于与志同道合的朋友交流，你可以在以下地方找到我：</br>
+**GitHub**: <a href="https://github.com/Breeze1203" target="_blank" rel="noopener noreferrer">github.com/Breeze1203</a>在这里，你可以看到我的开源项目、代码贡献，以及我关注的技术动态。欢迎 Star 和 Fork！</br>
+**邮箱**: <a href="mailto:tpeng9240@gmail.com">tpeng9240@gmail.com</a>如有任何问题或合作意向，欢迎随时邮件联系我。</br>
+## **[我的简历](/pdfs/彭涛-计算科学与技术.pdf)** 🌟</br>
 如果你对我的任何项目感兴趣，或者有任何技术上的问题想要探讨，都非常欢迎你通过 GitHub 或邮箱与我联系。
 感谢你的阅读！非常感谢你的来访！如果你有任何问题或建议，随时可以通过上面提到的方式联系我。
