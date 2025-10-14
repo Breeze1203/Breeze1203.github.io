@@ -10,7 +10,6 @@ description: "你好，我是彭涛 (Breeze1203)，一名热情的软件开发�
 我乐于与志同道合的朋友交流，你可以在以下地方找到我：
 **GitHub 主页**: <a href="https://github.com/Breeze1203" target="_blank" rel="noopener noreferrer">github.com/Breeze1203</a>在这里，你可以看到我的开源项目、代码贡献，以及我关注的技术动态。欢迎 Star 和 Fork！
 **邮箱**: <a href="mailto:tpeng9240@gmail.com">tpeng9240@gmail.com</a>如有任何问题或合作意向，欢迎随时邮件联系我。
-## 我的简历🌟
-[简历](/pdfs/彭涛-计算科学与技术.pdf)
+**简历(/pdfs/彭涛-计算科学与技术.pdf)**: 
 如果你对我的任何项目感兴趣，或者有任何技术上的问题想要探讨，都非常欢迎你通过 GitHub 或邮箱与我联系。
 感谢你的阅读！非常感谢你的来访！如果你有任何问题或建议，随时可以通过上面提到的方式联系我。
