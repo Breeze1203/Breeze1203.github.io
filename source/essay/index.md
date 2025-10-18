@@ -4,14 +4,13 @@ layout: page
 ---
 
 <div id="doodles-list">
-    <p>正在加载零碎记录...</p>
+    
 </div>
 
 <script>
 window.addEventListener('DOMContentLoaded', function() {
     const resultsContainer = document.getElementById('doodles-list');
     const targetCategory = 'Essay';
-
     if (!resultsContainer) {
         console.error("未找到用于渲染结果的容器 #doodles-list。");
         return;
@@ -36,10 +35,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 if (hasTargetCategory) {
                     const title = entry.querySelector('title')?.textContent || '无标题';
                     const url = entry.querySelector('url')?.textContent || '#';
-                    
-                    // =======================================================
-                    // [核心修改] 从 URL 中提取日期
-                    // =======================================================
                     let date = '';
                     // 1. 使用正则表达式匹配 URL 中的 YYYY/MM/DD 格式
                     const dateMatch = url.match(/(\d{4})\/(\d{2})\/(\d{2})/);
