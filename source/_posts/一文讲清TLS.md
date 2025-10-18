@@ -3,23 +3,17 @@ title: 一文讲清道理TLS
 date: 2025-10-18 20:09:22
 categories: Essay
 ---
-
-
 ### 生成 CA 证书 (ca_cert.pem)
 这会同时生成一个 CA 的私钥 (ca-key.pem) 和一个自签名的 CA 证书 (ca_cert.pem)。
 ```shell
 openssl req -x509 -newkey rsa:4096 -days 365 -nodes -keyout ca-key.pem -out ca_cert.pem -subj "/C=US/ST=CA/L=Mountain View/O=gRPC-Study/CN=ca"
 ```
 ### 生成服务器私钥 (server_key.pem)
-
 ```shell
 openssl genrsa -out server_key.pem 4096
 ```
-
 ### 生成服务器证书 (server_cert.pem)
-
-首先，创建一个服务器证书签名请求 (CSR):
-
+首先，创建一个服务器证书签名请求 (CSR)
 ```shell
 openssl req -new -key server_key.pem -out server.csr -subj "/C=US/ST=CA/L=Mountain View/O=gRPC-Study/CN=localhost"
 ```
@@ -31,21 +25,15 @@ openssl x509 -req -in server.csr -CA ca_cert.pem -CAkey ca-key.pem -CAcreateseri
 执行完这些命令后，你就会得到 ca_cert.pem 和 server_key.pem 以及其他相关文件。
 
 #### ca_cert.pem (CA 证书)
-
 - 身份是“证书颁发机构” (Certificate Authority, CA)
 - 作用：签发和验证其他证书。
-
 你可以把它想象成一个权威的身份认证机构，比如政府部门。当一个客户端或服务器想要证明自己的身份时，它不能自说自话，而是需要一个大家都信任的第三方
 （也就是 CA）来给它颁发一个“身份证”（即数字证书）。
-
 在 gRPC 的 TLS/mTLS 通信中：
 1. 服务器端：会配置这个 CA 证书，用来验证客户端出示的证书是否是由这个 CA 签发的。如果不是，服务器就认为客户端是不可信的，从而拒绝连接。
 2. 客户端：会配置这个 CA 证书，用来验证服务器出示的证书是否合法。如果服务器证书不是由这个 CA 签发的，客户端就会认为自己正在连接一个仿冒的、不安全的服务器，并中断连接。
-
 简单来说，ca_cert.pem 是信任的根基，用于确保通信双方都是由同一个受信任的机构认证过的。
-
 #### server_key.pem (服务器私钥)
-
 - 身份是“服务器的秘密密钥”
 - 作用：1. 证明服务器身份；2. 加密通信数据。
 
@@ -60,14 +48,14 @@ openssl x509 -req -in server.csr -CA ca_cert.pem -CAkey ca-key.pem -CAcreateseri
 ### 总结
 各个文件的作用
 
-| 文件名 | 文件类型 | 作用 | 是否敏感 |
-| :--- | :--- | :--- |:-----|
-| `ca-key.pem` | CA 私钥 | CA 的核心机密。用于签发（签署）新的证书，比如 server_cert.pem。这是信任链的权力来源。 | 极敏感  |
-| `ca_cert.pem` | CA 证书 | CA 的公开身份。分发给所有通信方（客户端和服务器），用于验证一个证书是否是由该 CA 签发的。 | 公开   |
-| `ca_cert.srl` | **CA 证书序列... | CA 的记账本。每当 CA 签发一个新证书，就会记录一个唯一的序列号，避免重复签发。这是 `openss... | 不敏感  |
-| `server.csr` | 证书签名请求 | 服务器向 CA 提交的“申请表”。包含了服务器的公钥和身份信息（如域名），请求 CA 为其签发一个... | 不敏感  |
-| `server_c...` | 服务器证书 | CA 颁发给服务器的“数字身份证”。包含了服务器的公钥和身份信息，并带有 CA 的数字签名以证明其... | 公开   |
-| `server_k...` | 服务器私钥 | 服务器的机密。与服务器证书中的公钥配对。用于证明身份和解密客户端发来的加密信息。 | 极敏感  |
+| 文件名                | 文件类型    | 作用 | 是否敏感 |
+|:-------------------|:--------| :--- |:-----|
+| `ca-key.pem`       | CA 私钥   | CA 的核心机密。用于签发（签署）新的证书，比如 server_cert.pem。这是信任链的权力来源。 | 极敏感  |
+| `ca_cert.pem`      | CA 证书   | CA 的公开身份。分发给所有通信方（客户端和服务器），用于验证一个证书是否是由该 CA 签发的。 | 公开   |
+| `ca_cert.srl`      | CA 证书序列 | CA 的记账本。每当 CA 签发一个新证书，就会记录一个唯一的序列号，避免重复签发。这是 `openss... | 不敏感  |
+| `server.csr`       | 证书签名请求  | 服务器向 CA 提交的“申请表”。包含了服务器的公钥和身份信息（如域名），请求 CA 为其签发一个... | 不敏感  |
+| `server_cert.pem.` | 服务器证书   | CA 颁发给服务器的“数字身份证”。包含了服务器的公钥和身份信息，并带有 CA 的数字签名以证明其... | 公开   |
+| `server_key.pem`   | 服务器私钥   | 服务器的机密。与服务器证书中的公钥配对。用于证明身份和解密客户端发来的加密信息。 | 极敏感  |
 
 安全通信工作流程 (TLS 握手)
 下面是当一个 gRPC 客户端连接到服务器时，这些证书和密钥如何协同工作的分步解析。
