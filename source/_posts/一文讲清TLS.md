@@ -28,6 +28,23 @@ openssl req -new -key server_key.pem -out server.csr -subj "/C=US/ST=CA/L=Mounta
 openssl x509 -req -in server.csr -CA ca_cert.pem -CAkey ca-key.pem -CAcreateserial -out server_cert.pem -days 365 -addext "subjectAltName = DNS:localhost,IP:127.0.0.1" 
 ```
 **原因：** 现代 TLS 客户端会忽略CN=localhost 字段，转而只检查 subjectAltName (SAN) 字段。如果你不加这个，gRPC 客户端会报错，认为证书对 localhost 无效。
+
+**注意：** 可能出现
+```
+x509: Extra (unknown) options: "addext"
+```
+这时openssl版本太旧，需要换成配置文件形式，创建v3.ext，内容如下
+```
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+IP.1 = 127.0.0.1
+```
+```shell
+pt@ptdeMacBook-Pro data % openssl x509 -req -in server.csr -CA ca_cert.pem -CAkey ca-key.pem -CAcreateserial -out server_cert.pem -days 365 -extfile v3.ext -extensions v3_req
+```
 #### 场景 A 的配置与握手
   * **服务器需要：**
     1.  server_key.pem (自己的私钥)
