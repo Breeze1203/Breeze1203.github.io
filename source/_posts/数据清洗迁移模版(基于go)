@@ -122,7 +122,7 @@ func (m *Migrator) getColumns(db *sql.DB, tableName string) ([]string, error) {
 
 func (m *Migrator) verifyColumnMapping() error {
 	log.Println("正在验证列映射关系...")
-	// 1. 验证源表
+	// 验证源表
 	sourceDBCols, err := m.getColumns(m.sourceDB, m.sourceTable)
 	if err != nil {
 		return err
@@ -161,24 +161,24 @@ func (m *Migrator) verifyColumnMapping() error {
 // Run 启动迁移流水线
 func (m *Migrator) Run() error {
 	startTime := time.Now()
-	// 1. 自动获取列名
+	// 获取列名
 	if err := m.verifyColumnMapping(); err != nil {
 		return err
 	}
-	// 2. 创建 channels
+	// 创建 channels
 	extractChan := make(chan RowData, m.batchSize*2) // 提取 channel
 	loadChan := make(chan RowData, m.batchSize*2)    // 加载 channel
 	errChan := make(chan error, 3)                   // 错误 channel
 	var wg sync.WaitGroup
-	// 3. 启动流水线
+	// 启动流水线
 	wg.Add(3)
 	go m.extract(&wg, extractChan, errChan)    // 启动 Extract
 	go m.transform(&wg, extractChan, loadChan) // 启动 Transform
 	go m.load(&wg, loadChan, errChan)          // 启动 Load
-	// 4. 等待所有 goroutines 完成
+	// 等待所有 goroutines 完成
 	wg.Wait()
 	close(errChan)
-	// 5. 检查错误
+	// 检查错误
 	for err := range errChan {
 		if err != nil {
 			return err // 返回第一个遇到的错误
@@ -202,16 +202,12 @@ func (m *Migrator) extract(wg *sync.WaitGroup, extractChan chan<- RowData, errCh
 	}
 	defer rows.Close()
 	log.Println("[Extract] 查询已发送, 正在等待第一行数据...")
-
-	// *** (已修改) *** 使用 sourceColumns
 	values := make([]interface{}, len(m.sourceColumns))
 	scanArgs := make([]interface{}, len(m.sourceColumns))
 	for i := range values {
 		scanArgs[i] = &values[i]
 	}
-
 	totalCount := 0
-
 	for rows.Next() {
 		if totalCount == 0 {
 			log.Println("[Extract] 已收到第一行, 开始流式读取...")
@@ -282,7 +278,6 @@ func (m *Migrator) transform(wg *sync.WaitGroup, extractChan <-chan RowData, loa
 			}
 		}(workerID)
 	}
-
 	// 等待 *所有* worker goroutine 执行完毕
 	// (当 extractChan 关闭且所有数据被处理完, for range 循环会退出)
 	workerWG.Wait()
@@ -299,7 +294,6 @@ func (m *Migrator) load(wg *sync.WaitGroup, loadChan <-chan RowData, errChan cha
 	valuesBuffer := make([]interface{}, 0, m.batchSize*len(m.targetColumns))
 	rowsInBatch := 0
 	totalLoaded := 0
-
 	log.Println("[Load] 已启动, 正在等待转换后的数据...")
 	for row := range loadChan {
 		for _, colName := range m.targetColumns {
@@ -439,5 +433,4 @@ func main() {
 	migrator1.Close()
 	log.Println("--- 任务 1 完成 ---")
 }
-
 ```
