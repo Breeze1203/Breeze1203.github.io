@@ -15,6 +15,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://breeze1203.github.io
+
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -116,6 +117,9 @@ search:
   format: html
   limit: 10000
 
+sitemap:
+  path: sitemap.xml
+
 custom_file_path:
   #head: source/_data/head.njk
   #header: source/_data/header.njk
@@ -127,3 +131,13 @@ custom_file_path:
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
+
+# Feed (RSS)
+feed:
+  type: atom  # 类型，可以是 'atom' (推荐) 或 'rss2'
+  path: atom.xml  # 生成的 feed 文件路径，例如 atom.xml 或 rss.xml
+  limit: 20   # 显示最近的多少篇文章
+  hub:
+  content: true # 是否包含文章全文
+  content_limit: 140 # 如果 content 为 false，摘要的字数
+  content_limit_delim: ' ' # 摘要的分隔符
