@@ -31,7 +31,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: googleb9dab4c26f5387d4.html
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -141,3 +141,4 @@ feed:
   content: true # 是否包含文章全文
   content_limit: 140 # 如果 content 为 false，摘要的字数
   content_limit_delim: ' ' # 摘要的分隔符
+
