@@ -63,8 +63,8 @@ layout: page
                     const url = entry.querySelector('url').textContent;
                     const content = entry.querySelector('content').textContent;
                     // 移除 HTML 标签以便于创建摘要
-                    const plainContent = content.replace(/<[^>]+>/g, ""); 
-                    
+                    const plainContent = content.replace(/<[^>]+>/g, "");
+                   
                     return {
                         title: title,
                         url: url,
@@ -77,7 +77,6 @@ layout: page
                 console.error('Error fetching or parsing search data:', error);
                 resultsContainer.innerHTML = '<p>加载搜索索引失败，请稍后重试。</p>';
             });
-
         // 2. 监听输入框的输入事件
         searchInput.addEventListener('input', function(e) {
             const query = e.target.value.trim().toLowerCase();
@@ -86,24 +85,24 @@ layout: page
                 resultsContainer.innerHTML = '';
                 return;
             }
-
+    
             // 3. 在已加载的数据中进行搜索
             const results = searchData.filter(item => {
                 const titleMatch = item.title.toLowerCase().includes(query);
                 const contentMatch = item.content.toLowerCase().includes(query);
                 return titleMatch || contentMatch;
             });
-
+    
             // 4. 渲染搜索结果
             renderResults(results);
         });
-
+    
         function renderResults(results) {
             if (results.length === 0) {
                 resultsContainer.innerHTML = '<p id="no-results">没有找到相关结果</p>';
                 return;
             }
-
+    
             let resultHTML = '';
             results.slice(0, 10).forEach(result => { // 最多显示10条结果
                 resultHTML += `
