@@ -12,16 +12,15 @@ comments: true
         <a href="/pdfs/jvm调优.pdf" target="_blank" title="点击查看 JVM 调优手册">
             JVM 调优.pdf
         </a>
-        <span class="file-desc">(Java 虚拟机性能优化指南)</span>
     </li>
    <li class="pdf-item">
         <span class="file-icon">📁</span>
         <a href="/pdfs/深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）周志明.pdf" target="_blank" title="点击查看 深入理解Java虚拟机">
             深入理解Java虚拟机：JVM高级特性与最佳实践（第3版）周志明.pdf
         </a>
-        <span class="file-desc">(深入理解Java虚拟机)</span>
     </li>
 </ul>
+
 
 <style>
 /* 可选：为列表添加一些简单的样式 */
