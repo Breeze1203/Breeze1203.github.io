@@ -2,8 +2,6 @@
 title: 📚 我的技术文档与书籍
 date: 2023-11-27 10:00:00
 type: "page"
-layout: "page"
-comments: true
 ---
 
 <ul class="pdf-list">
