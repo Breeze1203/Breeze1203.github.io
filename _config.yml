@@ -142,3 +142,18 @@ feed:
   content_limit: 140 # 如果 content 为 false，摘要的字数
   content_limit_delim: ' ' # 摘要的分隔符
 
+# =======================================================
+# 机器人配置 (Robots.txt Configuration)
+# =======================================================
+robotstxt:
+  # 允许所有爬虫访问
+  useragent: '*'
+  # 允许抓取所有路径
+  allow: /
+  # 排除所有不需要索引的路径，例如某些主题自带的 JS/CSS 目录
+  # 如果不确定，可以暂时不写 Disallow
+  # disallow:
+  #   - /js/
+  #   - /css/
+  # 明确指向您的 Sitemap 文件
+  sitemap: https://breeze1203.github.io/sitemap.xml
