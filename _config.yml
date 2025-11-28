@@ -142,10 +142,8 @@ feed:
   content_limit: 140 # 如果 content 为 false，摘要的字数
   content_limit_delim: ' ' # 摘要的分隔符
 
-# =======================================================
-# 机器人配置 (Robots.txt Configuration)
-# =======================================================
 robotstxt:
   useragent: '*'
-  allow: /
+  allow:
+    - /
   sitemap: https://breeze1203.github.io/sitemap.xml
