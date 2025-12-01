@@ -31,6 +31,19 @@ elasticsearch.username: "kibana_system"
 elasticsearch.password: "Yk+Rq6cmIa9DCrsM6=Lr"
 elasticsearch.ssl.certificateAuthorities: [ "/Users/pt/Downloads/elasticsearch-8.13.0/config/certs/http_ca.crt" ]
 ```
+##### 启动kibana
+```shell
+nohup ./bin/kibana &
+```
+##### 查看日志文件里面的访问链接
+```shell
+tail -f nohup.log
+```
+##### 浏览器登录kibana
+```yaml
+user: elastic
+password: 密码
+```
 
 #### 避免参数混淆
 - server.ssl.enabled 作用：是否开启 HTTPS 默认值：false (关闭)。 如果设置为 true：你就必须通过 https://localhost:5601 访问，原来的 http:// 就无法访问了。
