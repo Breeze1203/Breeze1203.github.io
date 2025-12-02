@@ -1,11 +1,9 @@
 ---
 title: elasticsearch与kibana的配置
 date: 2025-12-01 21:09:40
-tags: Elasticsearch
+tags: [Elasticsearch]
 ---
-#### 下载合适版本的es与kibana
-
-#### 配置本地java环境
+#### 下载合适版本的[es](https://www.elastic.co/downloads/past-releases/elasticsearch-8-13-0)与[kibana](https://www.elastic.co/downloads/past-releases/kibana-8-13-0)
 
 #### 启动es、浏览器访问localhost:9102
 ```shell
