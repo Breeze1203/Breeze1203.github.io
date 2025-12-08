@@ -1,7 +1,7 @@
 ---
 title: nginx基础操作
 date: 2025-12-02 11:31:17
-tags: nginx
+categories: Essay
 ---
 
 ### 一、Root vs Alias

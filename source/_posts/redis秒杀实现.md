@@ -1,7 +1,7 @@
 ---
 title: redis秒杀实现
 date: 2025-12-04 20:47:08
-tags: redis
+categories: Essay
 ---
 
 ```go
