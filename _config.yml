@@ -108,18 +108,14 @@ theme: cactus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-
-
 # 站内搜索
 search:
   path: search.xml
   field: post
   format: html
   limit: 10000
-
 sitemap:
   path: sitemap.xml
-
 custom_file_path:
   #head: source/_data/head.njk
   #header: source/_data/header.njk
