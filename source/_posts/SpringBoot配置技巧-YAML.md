@@ -228,3 +228,5 @@ logging:
 ```
 Spring Boot 会自动检测运行环境（通过环境变量、文件系统特征等）。同一个 JAR 包，在本地跑用本地配置，部署到 K8s 自动切换成云上配置。
 不用在启动脚本里传一堆参数了
+
+注: [参考文章](https://mp.weixin.qq.com/s/78WgG3dT4kHAPMK9aQu8sw)（做大佬的搬运工，学习积累）
