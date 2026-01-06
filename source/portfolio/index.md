@@ -8,7 +8,6 @@ type: "portfolio"
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 
 <style>
-  /* 全局居中 */
   .project-card {
     margin-bottom: 60px;
     padding-bottom: 30px;
@@ -21,7 +20,6 @@ type: "portfolio"
     margin-bottom: 20px;
     color: #2bbc8a;
   }
-  /* 轮播容器 */
   .my-swiper {
     width: 100%;
     height: 350px;
@@ -30,11 +28,8 @@ type: "portfolio"
     margin-bottom: 20px;
     background: #f9f9f9;
   }
-  .swiper-slide {
-    height: 100%;
-    width: 100%;
-  }
-  /* Fancybox 链接容器 */
+  .swiper-slide { height: 100%; width: 100%; }
+  
   .fancybox-link {
     display: block;
     width: 100%;
@@ -46,14 +41,12 @@ type: "portfolio"
   .fancybox-link img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 如果不想裁切，改成 contain */
+    object-fit: cover; 
     display: block;
     transition: transform 0.3s;
   }
-  .fancybox-link:hover img {
-    transform: scale(1.03);
-  }
-  /* 底部控制栏 */
+  .fancybox-link:hover img { transform: scale(1.03); }
+
   .ctrl-bar {
     display: flex;
     justify-content: center;
@@ -68,9 +61,7 @@ type: "portfolio"
     max-width: 70%; 
     font-size: 0.95rem;
     color: #666;
-    line-height: 1.6;
   }
-  /* 重写 Swiper 按钮 */
   .ctrl-bar .swiper-button-prev, 
   .ctrl-bar .swiper-button-next {
     position: static !important;
@@ -83,98 +74,98 @@ type: "portfolio"
     cursor: pointer;
   }
   .ctrl-bar .swiper-button-prev::after,
-  .ctrl-bar .swiper-button-next::after {
-    font-size: 20px;
-  }
+  .ctrl-bar .swiper-button-next::after { font-size: 20px; }
   .custom-pagination {
     margin-top: 10px;
     display: flex;
     justify-content: center;
   }
-  .swiper-pagination-bullet-active {
-    background: #2bbc8a !important;
-  }
+  .swiper-pagination-bullet-active { background: #2bbc8a !important; }
 </style>
 
-<div class="project-card">
-  <div class="project-title">公司成果 </div>
-
-  <div class="swiper my-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="Jasset 首页总览">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" alt="首页">
-        </a>
-      </div>
-      <div class="swiper-slide">
-         <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/2.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="详情页">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/2.png" alt="图2">
-         </a>
-      </div>
-      <div class="swiper-slide">
-         <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/3.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="详情页">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/3.png" alt="图3">
-         </a>
-      </div>
-      <div class="swiper-slide">
-         <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/4.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="详情页">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/4.png" alt="图4">
-         </a>
-      </div>
-      <div class="swiper-slide">
-         <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/5.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="详情页">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/5.png" alt="图5">
-         </a>
-      </div>
-      <div class="swiper-slide">
-         <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/6.png" class="fancybox-link" data-fancybox="gallery-project-1" data-caption="详情页">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/6.png" alt="图6">
-         </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="ctrl-bar">
-    <div class="swiper-button-prev"></div>
-    <p class="project-desc">点击图片可放大查看细节</p>
-    <div class="swiper-button-next"></div>
-  </div>
-  <div class="custom-pagination"></div>
-</div>
-
-
-<div class="project-card">
-  <div class="project-title">个人项目</div>
-
-  <div class="swiper my-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" class="fancybox-link" data-fancybox="gallery-project-2" data-caption="项目2截图A">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" alt="图1">
-        </a>
-      </div>
-      <div class="swiper-slide">
-        <a href="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" class="fancybox-link" data-fancybox="gallery-project-2" data-caption="项目2截图B">
-          <img src="https://cdn.jsdelivr.net/gh/Breeze1203/portfolio@main/bw/1.png" alt="图2">
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="ctrl-bar">
-    <div class="swiper-button-prev"></div>
-    <p class="project-desc">点击图片可放大查看细节</p>
-    <div class="swiper-button-next"></div>
-  </div>
-  <div class="custom-pagination"></div>
-</div>
-
+<div id="portfolio-container"></div>
 
 <script src="https://npm.elemecdn.com/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <script>
-  // 初始化 Swiper 轮播
+  const GITHUB_USER = "Breeze1203";
+  const REPO_NAME = "portfolio";
+  const BRANCH = "main";
+  
+  // 核心：项目列表配置
+  const projects = [
+    {
+      id: "bw",                   
+      folderName: "bw",          
+      title: "信息管理系统",         
+      imgCount: 6,                 
+      desc: "点击图片可放大" 
+    },
+    {
+      id: "xcx",
+      folderName: "xcx",          
+      title: "享乐享智家与手持机",
+      imgCount: 6,                
+      desc: "点击图片可放大"
+    },
+    {
+      id: "person",
+      folderName: "person",        
+      title: "个人项目作品",
+      imgCount: 4,                
+      desc: "个人独立开发与练习项目。"
+    }
+  ];
+  // ============================================================
+
+
+  // 1. 生成 HTML 函数
+  const container = document.getElementById('portfolio-container');
+  const baseUrl = `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${REPO_NAME}@${BRANCH}`;
+
+  let finalHtml = "";
+
+  projects.forEach(proj => {
+    let slidesHtml = "";
+    
+    // 内层循环：生成图片 Slide
+    for (let i = 1; i <= proj.imgCount; i++) {
+      let imgUrl = `${baseUrl}/${proj.folderName}/${i}.png`; 
+      
+      slidesHtml += `
+        <div class="swiper-slide">
+          <a href="${imgUrl}" 
+             class="fancybox-link" 
+             data-fancybox="gallery-${proj.id}" 
+             data-caption="${proj.title} - 图${i}">
+            <img src="${imgUrl}" loading="lazy" alt="${proj.title} ${i}">
+          </a>
+        </div>
+      `;
+    }
+    finalHtml += `
+      <div class="project-card">
+        <div class="project-title">${proj.title}</div>
+        
+        <div class="swiper my-swiper">
+          <div class="swiper-wrapper">
+            ${slidesHtml}
+          </div>
+        </div>
+
+        <div class="ctrl-bar">
+          <div class="swiper-button-prev"></div>
+          <p class="project-desc">${proj.desc}</p>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="custom-pagination"></div>
+      </div>
+    `;
+  });
+
+  // 将生成的 HTML 插入页面
+  container.innerHTML = finalHtml;
   document.querySelectorAll('.project-card').forEach(function(card) {
     var swiperEl = card.querySelector('.my-swiper');
     var nextBtn = card.querySelector('.swiper-button-next');
@@ -182,7 +173,9 @@ type: "portfolio"
     var paginationEl = card.querySelector('.custom-pagination');
 
     new Swiper(swiperEl, {
-      loop: true, // 如果图片只有1张，loop:true 可能会有bug，建议至少放2张图
+      loop: true,
+      // 懒加载优化，防止一次性加载太多图片卡顿
+      lazy: true, 
       navigation: {
         nextEl: nextBtn,
         prevEl: prevBtn,
