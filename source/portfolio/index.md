@@ -113,7 +113,7 @@ type: "portfolio"
       id: "person",
       folderName: "person",        
       title: "个人项目作品",
-      imgCount: 6,                
+      imgCount: 15,                
       desc: "点击图片可放大"
     }
   ];
