@@ -138,5 +138,5 @@ async function tryLogin() {
 因为是新的调用（或者 isLogining 被重置），守卫 if (!socialCode || isLogining.value) 没有拦住。 最后才去执行 authStore.authLogin
 
 ##### 日志查看
-![这是图片](../images/企业微信.png)
+![这是图片](../images/企微登录.png)
 ![这是图片](../images/ngixn日志.png)
