@@ -2,6 +2,7 @@
 title: 利用dify与简历警察优化简历
 date: 2026-01-07 10:27:43
 tags: [AI]
+categories: Essay
 ---
 
 #### 环境搭建
