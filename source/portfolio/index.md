@@ -4,8 +4,8 @@ date: 2024-01-01
 type: "portfolio"
 ---
 
-<link rel="stylesheet" href="https://npm.elemecdn.com/swiper@8/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+<link rel="stylesheet" href="/lib/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css"/>
 
 <style>
   .project-card {
@@ -29,7 +29,7 @@ type: "portfolio"
     background: #f9f9f9;
   }
   .swiper-slide { height: 100%; width: 100%; }
-  
+
   .fancybox-link {
     display: block;
     width: 100%;
@@ -85,14 +85,13 @@ type: "portfolio"
 
 <div id="portfolio-container"></div>
 
-<script src="https://npm.elemecdn.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="/lib/swiper/swiper-bundle.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
 
 <script>
   const GITHUB_USER = "Breeze1203";
   const REPO_NAME = "portfolio";
   const BRANCH = "main";
-  
   // 核心：项目列表配置
   const projects = [
     {
@@ -118,7 +117,6 @@ type: "portfolio"
     }
   ];
   // ============================================================
-
 
   // 1. 生成 HTML 函数
   const container = document.getElementById('portfolio-container');
@@ -153,7 +151,7 @@ type: "portfolio"
             ${slidesHtml}
           </div>
         </div>
-
+    
         <div class="ctrl-bar">
           <div class="swiper-button-prev"></div>
           <p class="project-desc">${proj.desc}</p>
