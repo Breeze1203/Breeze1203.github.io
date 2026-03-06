@@ -98,7 +98,7 @@ type: "portfolio"
       id: "bw",                   
       folderName: "bw",          
       title: "信息管理系统",         
-      imgCount: 6,                 
+      imgCount: 5,                 
       desc: "点击图片可放大" 
     },
     {
@@ -106,6 +106,13 @@ type: "portfolio"
       folderName: "xcx",          
       title: "享乐享智家与手持机",
       imgCount: 6,                
+      desc: "点击图片可放大"
+    },
+    {
+      id: "yd",
+      folderName: "yd",          
+      title: "元点ai",
+      imgCount: 7,                
       desc: "点击图片可放大"
     },
     {

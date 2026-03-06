@@ -65,3 +65,54 @@ jmap -dump:live,format=b,file=heap.hprof 28427
 
 - 内存泄漏 (Memory Leak)： 慢性病。对象用完了但没被释放。比如 static 集合里不停地加东西，或者 ThreadLocal 没执行 remove()。
 解决： 检查代码逻辑，手动释放引用
+
+示例代码
+```java
+public class OOMTest {
+    public static void main(String[] args) {
+        List<byte[]> list = new ArrayList<>();
+        int count = 0;
+
+        try {
+            while (true) {
+                // 每次分配 1MB 的字节数组
+                list.add(new byte[1024 * 1024]);
+                count++;
+                System.out.println("当前已分配: " + count + " MB");
+            }
+        } catch (OutOfMemoryError e) {
+            System.err.println("捕捉到 OOM 异常！");
+            e.printStackTrace();
+        }
+    }
+}
+```
+设置运行jvm参数
+-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./oom.hprof 生成dump文件
+
+![](../images/oom-1.png)
+
+定位内存泄漏（OOM）永远看“传入引用”（Incoming References）(谁在引用我) 
+查看大对象的传入引用
+
+![](../images/oom-2.png)
+
+怎么看懂这张图？（从右往左“溯源”）
+- 右一 byte[]：这是真正占用内存的“大胖子”（模拟代码里的 new byte[1024*1024]）。
+
+- 右二 j.lang.Object[]：这是 ArrayList 内部用来真正存储数据的数组容器。
+
+- 右三 j.util.ArrayList：这就是你代码里定义的那个集合对象。
+
+- 左一 java堆栈 of main...：这是最重要的“证据”——GC Root。它说明这个 ArrayList 被 main 线程的本地变量表一直引用着。
+
+结论： 因为 main 线程没结束，它一直拽着 ArrayList，ArrayList 又拽着数组，数组又拽着成千上万个 byte[]。GC 发现这串链条是连通的，所以不敢回收
+
+如果是真实生产环境呢？
+“如果这不是 main 方法，是 Web 服务器呢？”
+你可以根据这张图的逻辑举一反三：
+- 情景 A：如果是 ThreadLocal 没卸载，GC Root 就会显示某个 Thread。
+
+- 情景 B：如果是静态变量，GC Root 就会显示某个 Static Field。
+
+- 情景 C：如果是 Spring 管理的 Bean（单例），GC Root 就会一直追踪到 Spring 容器
