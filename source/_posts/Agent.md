@@ -6,5 +6,6 @@ tags: [Agent、LangGraph、LangChain]
 ---
 
 ![效果图](../images/result.png)
+![效果图](../images/result-1.png)
 ![效果图](../images/result-2.png)
 [源码地址](https://github.com/Breeze1203/AiDevOps)
