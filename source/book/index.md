@@ -13,7 +13,7 @@ type: "page"
     </li>
     <li class="pdf-item">
         <span class="file-icon">📁</span>
-        <a href="/pdfs/Java诊断利器Arthas排查问题实践_郭浩" target="_blank" title="Java诊断利器Arthas排查问题实践">
+        <a href="/pdfs/Java诊断利器Arthas排查问题实践_郭浩.pdf" target="_blank" title="Java诊断利器Arthas排查问题实践">
             Java诊断利器Arthas排查问题实践
         </a>
     </li>
