@@ -31,6 +31,12 @@ type: "page"
     </li>
     <li class="pdf-item">
         <span class="file-icon">📁</span>
+        <a href="/pdfs/vbird-linux-basic-4e" target="_blank" title="鸟哥的私房菜">
+            鸟哥的私房菜
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
         <a href="https://github.com/hongye612430/awesome-programming-books-1/tree/master" target="_blank" title="专业书籍大全">
             专业书籍大全
         </a>
