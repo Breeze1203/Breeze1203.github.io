@@ -31,7 +31,7 @@ type: "page"
     </li>
     <li class="pdf-item">
         <span class="file-icon">📁</span>
-        <a href="/pdfs/vbird-linux-basic-4e" target="_blank" title="鸟哥的私房菜">
+        <a href="/pdfs/vbird-linux-basic-4e.pdf" target="_blank" title="鸟哥的私房菜">
             鸟哥的私房菜
         </a>
     </li>
