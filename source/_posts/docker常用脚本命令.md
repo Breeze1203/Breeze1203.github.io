@@ -74,3 +74,8 @@ networks:
   kafka-network:
     driver: bridge
 ```
+
+##### mysql导出数据
+```
+mysqldump -h 192.168.0.205 -P 3306 -u dev -p -t --no-tablespaces --single-transaction pig > D:\pig_data_only.sql
+```
