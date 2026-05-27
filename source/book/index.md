@@ -37,6 +37,12 @@ type: "page"
     </li>
     <li class="pdf-item">
         <span class="file-icon">📁</span>
+        <a href="/pdfs/kafka权威指南中文版.pdf" target="_blank" title="kafka权威指南中文版">
+           kafka权威指南中文版
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
         <a href="https://github.com/hongye612430/awesome-programming-books-1/tree/master" target="_blank" title="专业书籍大全">
             专业书籍大全
         </a>
