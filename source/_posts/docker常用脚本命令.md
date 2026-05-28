@@ -77,5 +77,5 @@ networks:
 
 ##### mysql导出数据
 ```
-mysqldump -h 192.168.0.205 -P 3306 -u dev -p -t --no-tablespaces --single-transaction pig > D:\pig_data_only.sql
+mysqldump -h rm-wz9gtw0898hi535otyo.mysql.rds.aliyuncs.com -P 3306 -u user -p -t --skip-lock-tables --no-tablespaces --set-gtid-purged=OFF datanase > D:\databaseg.sql
 ```
