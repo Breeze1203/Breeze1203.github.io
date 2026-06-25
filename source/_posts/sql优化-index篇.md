@@ -50,8 +50,6 @@ tags:
 | 7    | `ANALYZE TABLE 表名;`                                          | 更新优化器统计信息        |
 | 8    | `EXPLAIN SELECT ...;`                                          | 再次验证是否命中新索引    |
 
-#### 当前场景的完整模板(耗时5s优化到3s)，还可走进一步优化(sql优化--第一个查询查询所以字段没走索引触发回表)
-
 ```sql
 -- 1. 查看表结构
 SHOW CREATE TABLE process_node_record_assign_user;
@@ -96,4 +94,56 @@ INNER JOIN process_node_record b
 WHERE
   a.user_id = '1829737509048532993'
   AND a.`status` = 1;
+```
+
+#### 当前优化记录
+
+```sql
+-- 耗时8.265s(无索引、原始SQL)-->耗时2.663s(有索引、原始SQL)
+EXPLAIN SELECT
+  a.*,
+  b.`status`
+FROM
+  `process_node_record_assign_user` as a
+  left JOIN process_node_record b on a.process_instance_id = b.process_instance_id
+  and a.node_id = b.node_id
+  and a.execution_id = b.execution_id
+where
+  a.user_id =1829737509048532993 and b.`status` = 1 and a.`status` = 1;
+
+-- 耗时3.252s(无索引、改成内连接)-->耗时2.581s(有索引、原始SQL)
+EXPLAIN SELECT
+  a.*,
+  b.`status`
+FROM
+  `process_node_record_assign_user` as a
+  INNER JOIN process_node_record b on a.process_instance_id = b.process_instance_id
+  and a.node_id = b.node_id
+  and a.execution_id = b.execution_id
+where
+  a.user_id =1829737509048532993 and b.`status` = 1 and a.`status` = 1;
+
+
+-- 创建索引
+ALTER TABLE process_node_record_assign_user
+ADD INDEX idx_user_status_instance_node_execution (
+  user_id,
+  status,
+  process_instance_id,
+  node_id,
+  execution_id
+),
+ALGORITHM=INPLACE,
+LOCK=NONE;
+
+ALTER TABLE process_node_record
+ADD INDEX idx_tenant_status_instance_node_execution (
+  tenant_id,
+  status,
+  process_instance_id,
+  node_id,
+  execution_id
+),
+ALGORITHM=INPLACE,
+LOCK=NONE;
 ```
