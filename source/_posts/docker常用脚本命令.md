@@ -74,3 +74,8 @@ networks:
   kafka-network:
     driver: bridge
 ```
+
+##### mysql导出数据
+```
+mysqldump -h rm-wz9gtw0898hi535otyo.mysql.rds.aliyuncs.com -P 3306 -u user -p -t --skip-lock-tables --no-tablespaces --set-gtid-purged=OFF datanase > D:\databaseg.sql
+```

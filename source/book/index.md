@@ -23,6 +23,36 @@ type: "page"
             深入理解Java虚拟机
         </a>
     </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
+        <a href="/pdfs/高性能MySQL（第3版）中文版_compressed.pdf" target="_blank" title="高性能MySQL">
+            高性能MySQL
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
+        <a href="/pdfs/vbird-linux-basic-4e.pdf" target="_blank" title="鸟哥的私房菜">
+            鸟哥的私房菜
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
+        <a href="/pdfs/kafka权威指南中文版.pdf" target="_blank" title="kafka权威指南中文版">
+           kafka权威指南中文版
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
+        <a href="/pdfs/Elasticsearch 权威指南.pdf" target="_blank" title="Elasticsearch 权威指南">
+           Elasticsearch 权威指南
+        </a>
+    </li>
+    <li class="pdf-item">
+        <span class="file-icon">📁</span>
+        <a href="https://github.com/hongye612430/awesome-programming-books-1/tree/master" target="_blank" title="专业书籍大全">
+            专业书籍大全
+        </a>
+    </li>
 </ul>
 
 <style>
