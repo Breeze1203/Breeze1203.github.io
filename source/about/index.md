@@ -5,12 +5,15 @@ layout: page
 comments: false
 description: "你好，我是彭涛 (Breeze1203)，一名热情的软件开发者。欢迎了解我的技术栈、项目和联系方式。"
 ---
+
 👋 你好，我是 **彭涛 (Breeze1203)**！我是一名坐标软件开发者，对探索技术、构建实用且有趣的应用程序以及参与开源社区抱有浓厚的兴趣。这个小站是我思想的试验田和技术的备忘录。在这里，我会分享我在软件开发过程中的学习笔记、遇到的问题与解决方案、对某些技术的思考，偶尔也会有一些生活感悟。我始终坚信分享是学习的最佳方式之一。希望你能在这里找到对你有用的信息。
+
 <h3>找到我 📬</h3>
 
 我乐于与志同道合的朋友交流，你可以在以下地方找到我：</br>
 **GitHub**: <a href="https://github.com/Breeze1203" target="_blank" rel="noopener noreferrer">github.com/Breeze1203</a>在这里，你可以看到我的开源项目、代码贡献，以及我关注的技术动态。欢迎 Star 和 Fork！</br>
-**邮箱**: <a href="mailto:tpeng9240@gmail.com">tpeng9240@gmail.com</a>如有任何问题或合作意向，欢迎随时邮件联系我。</br>
+**邮箱**: <a href="mailto:its.pengtao@gmail.com">tpeng9240@gmail.com</a>如有任何问题或合作意向，欢迎随时邮件联系我。</br>
+
 <h3>我的简历🌟</h3>
 
 [简历](/pdfs/彭涛_后端开发_2年_副本.pdf)</br>
