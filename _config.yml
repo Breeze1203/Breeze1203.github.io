@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 # Site
 title: PengTao's Blog
-subtitle: ''
-description: '以自己想要的方式过完一生，就是成功'
+subtitle: ""
+description: "以自己想要的方式过完一生，就是成功"
 keywords:
 author: Peng Tao
 language: en
-timezone: ''
+timezone: ""
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -38,7 +38,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -48,20 +48,20 @@ syntax_highlighter: highlight.js
 highlight:
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
 prismjs:
   preprocess: true
   line_number: true
-  tab_replace: ''
+  tab_replace: ""
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index2_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
   exclude:
@@ -71,6 +71,12 @@ index2_generator:
 default_category: uncategorized
 category_map:
 tag_map:
+
+mermaid:
+  enable: true
+  version: "10.9.1"
+  options:
+    theme: default
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -83,7 +89,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+updated_option: "mtime"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -101,11 +107,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: cactus
 
-
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: ""
 # 站内搜索
 search:
   path: search.xml
@@ -128,16 +133,16 @@ custom_file_path:
 
 # Feed (RSS)
 feed:
-  type: atom  # 类型，可以是 'atom' (推荐) 或 'rss2'
-  path: atom.xml  # 生成的 feed 文件路径，例如 atom.xml 或 rss.xml
-  limit: 20   # 显示最近的多少篇文章
+  type: atom # 类型，可以是 'atom' (推荐) 或 'rss2'
+  path: atom.xml # 生成的 feed 文件路径，例如 atom.xml 或 rss.xml
+  limit: 20 # 显示最近的多少篇文章
   hub:
   content: true # 是否包含文章全文
   content_limit: 140 # 如果 content 为 false，摘要的字数
-  content_limit_delim: ' ' # 摘要的分隔符
+  content_limit_delim: " " # 摘要的分隔符
 
 robotstxt:
-  useragent: '*'
+  useragent: "*"
   allow:
     - /
   sitemap: https://breeze1203.github.io/sitemap.xml
