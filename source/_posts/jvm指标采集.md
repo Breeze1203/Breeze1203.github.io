@@ -1,7 +1,7 @@
 ---
 title: jvm指标采集
 date: 2026-07-14 13:36:50
-tags: Essay
+categories: Essay
 ---
 
 ```Java
