@@ -173,7 +173,7 @@ kubectl logs pigx-crm-58b744c6c7-l6jqg -n crm --previous > crm-previous.log
 
 明确是堆溢出了，那应该看堆文件了，查看jvm运行配置
 
-- 查看ConfigMap
+查看ConfigMap
 
 ```shell
 C:\Users\35482>kubectl get cm crm-jvm-cm -n crm -o yaml
@@ -277,4 +277,4 @@ Events:        <none>
 ![k8s-bug](../images/crm-export.png)
 这个时间点正是服务器不可用那段时间，导出excel，询问操作人员，20万数据全量导出，有一定的风险，并且排查的导出代码有</br>
 ![k8s-bug](../images/export-bug.png)
-这里直接进行一次堆内存复制，那问题明确了,后续增加数据筛选范围，本地临时文件，流失导出
+这里直接进行一次堆内存复制，那问题明确了,后续增加数据筛选范围，本地临时文件，流式导出
