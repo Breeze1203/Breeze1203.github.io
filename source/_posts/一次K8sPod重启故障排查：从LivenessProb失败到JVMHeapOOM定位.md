@@ -271,6 +271,18 @@ Used By:       kuboard-v3-6c7ccd68d4-q74lj
 Events:        <none>
 ```
 
+查看堆情况（上面是刚重启完的）
+
+```shell
+C:\Users\35482>kubectl exec -it pigx-crm-88dd9d555-4mwx9 -n crm -- sh
+sh-4.4# jcmd 1 GC.heap_info
+1:
+ garbage-first heap   total 2097152K, used 1097836K [0x0000000741800000, 0x0000000800000000)
+  region size 2048K, 353 young (722944K), 2 survivors (4096K)
+ Metaspace       used 259012K, committed 266240K, reserved 1310720K
+  class space    used 28144K, committed 32832K, reserved 1048576K
+```
+
 #### 解决问题
 
 现在JVM堆日志看不了，只能看这个时间点在做什么了，好在找到一丝蛛丝马迹
@@ -278,3 +290,12 @@ Events:        <none>
 这个时间点正是服务器不可用那段时间，导出excel，询问操作人员，20万数据全量导出，有一定的风险，并且排查的导出代码有</br>
 ![k8s-bug](../images/export-bug.png)
 这里直接进行一次堆内存复制，那问题明确了,后续增加数据筛选范围，本地临时文件，流式导出
+后续可以模拟这个导出功能，观察堆增长
+
+```shell
+ watch -n 1 "jcmd 1 GC.heap_info"
+#精简镜像没有可以使用
+while true; do jcmd 1 GC.heap_info; sleep 1; done
+#结合查看full gc
+jstat -gcutil 1 1000
+```
